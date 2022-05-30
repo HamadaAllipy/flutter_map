@@ -19,15 +19,23 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(),
       body: GoogleMap(
         initialCameraPosition: const CameraPosition(
-            target: LatLng(37.42796133580664, -122.085749655962),
+            target: LatLng(30.033333, 31.233334),
+          zoom: 3.0,
         ),
         markers: marker,
         onMapCreated: (GoogleMapController googleMapController){
           setState((){
             marker.add(
-              const Marker(
+               Marker(
                 markerId: MarkerId('1'),
-                position: LatLng(37.42796133580664, -122.085749655962),
+                position: LatLng(30.033333, 31.233334),
+                infoWindow: InfoWindow(
+                  title: 'Title',
+                  snippet: 'snippet',
+                  onTap: (){
+                    print('Hamada');
+                  }
+                ),
               ),
             );
           });
