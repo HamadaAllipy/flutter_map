@@ -31,6 +31,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(),
       body: GoogleMap(
+        mapType: MapType.hybrid,
         initialCameraPosition: const CameraPosition(
             target: LatLng(30.033333, 31.233334),
           zoom: 3.0,
@@ -40,8 +41,8 @@ class _HomePageState extends State<HomePage> {
           setState((){
             marker.add(
                Marker(
-                markerId: MarkerId('1'),
-                position: LatLng(30.033333, 31.233334),
+                markerId: const MarkerId('1'),
+                position: const LatLng(30.033333, 31.233334),
                 infoWindow: InfoWindow(
                   title: 'Title',
                   snippet: 'snippet',
