@@ -13,6 +13,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   var marker = HashSet<Marker>();
+  BitmapDescriptor? customMarker;
+
+  getCustomMarker()async{
+    customMarker = await  BitmapDescriptor.fromAssetImage(ImageConfiguration.empty, 'assets/icon/marker_icon.png');
+  }
+
+
+  @override
+  void initState() {
+    getCustomMarker();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +49,7 @@ class _HomePageState extends State<HomePage> {
                     print('Hamada');
                   }
                 ),
+                 icon: customMarker as BitmapDescriptor,
               ),
             );
           });
